@@ -1,0 +1,12 @@
+
+{
+    "files": [
+        "TypeScript/main.ts"
+    ],
+    "compilerOptions": {
+        "removeComments": true,
+        "outDir": "JavaScript",
+        "watch": true,
+        "target": "es5"
+    }
+}
