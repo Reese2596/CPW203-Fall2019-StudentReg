@@ -62,6 +62,13 @@ function getInputValue(id:string):string{
     return element.value;
 }
 
-function displayStudent(disciple){}
+function displayStudent(disciple:Student){
+    let newItem = document.createElement("li");
+    newItem.innerText = disciple.lastName + ", " + disciple.firstName;
+
+    let list = document.querySelector("#student-list > ul");
+    //add li element as a child to ul
+    list.appendChild(newItem);
+}
 
 function clearForm(){}

@@ -31,5 +31,10 @@ function getInputValue(id) {
     var element = document.getElementById(id);
     return element.value;
 }
-function displayStudent(disciple) { }
+function displayStudent(disciple) {
+    var newItem = document.createElement("li");
+    newItem.innerText = disciple.lastName + ", " + disciple.firstName;
+    var list = document.querySelector("#student-list > ul");
+    list.appendChild(newItem);
+}
 function clearForm() { }
