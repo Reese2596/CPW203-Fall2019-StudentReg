@@ -1,0 +1,13 @@
+
+h1{
+    background-color: rgb(238, 253, 236);
+    border-radius: 9px;
+    padding: .4em;
+    margin-top: .2em;
+    color: rgb(0, 186, 189);
+    text-align: center;
+}
+
+span{
+    color: darkred;
+}
