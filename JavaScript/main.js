@@ -32,7 +32,7 @@ function getInputValue(id) {
 }
 function displayStudent(disciple) {
     var newItem = document.createElement("li");
-    newItem.innerText = disciple.lastName + ", " + disciple.firstName;
+    newItem.innerText = disciple.firstName + " " + disciple.lastName;
     var list = document.querySelector("#student-list > ul");
     newItem.setAttribute(programAttribute, disciple.programOfStudy);
     newItem.setAttribute(AddressAttribute, disciple.mailingAddress);
@@ -47,4 +47,12 @@ function showDiscipleData() {
     document.querySelector("#display > h2").innerHTML = name;
     document.querySelector("#display > p").innerHTML = program;
 }
-function clearForm() { }
+function clearForm() {
+    var allTextBoxes = document.querySelectorAll("input[type=text]");
+    var dropDown = document.querySelector("select");
+    dropDown.value = "";
+    for (var i = 0; i < allTextBoxes.length; i++) {
+        var currBox = allTextBoxes[i];
+        currBox.value = "";
+    }
+}

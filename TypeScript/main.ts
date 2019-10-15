@@ -78,7 +78,7 @@ function getInputValue(id:string):string{
 
 function displayStudent(disciple:Student){
     let newItem = document.createElement("li");
-    newItem.innerText = disciple.lastName + ", " + disciple.firstName;
+    newItem.innerText = disciple.firstName + " " + disciple.lastName;
     let list = document.querySelector("#student-list > ul");
 
     //embed student data in list item
@@ -106,4 +106,18 @@ function showDiscipleData(){
 }
 
 
-function clearForm(){}
+function clearForm(){
+    /*
+    let regForm = <HTMLFormElement> document.getElementById(form name);
+    regForm.reset();
+    */
+    let allTextBoxes = document.querySelectorAll("input[type=text]");
+
+    let dropDown = document.querySelector("select")
+    dropDown.value = "";
+
+    for (let i = 0; i < allTextBoxes.length; i++) {
+        let currBox = <HTMLInputElement>allTextBoxes[i];
+        currBox.value = "";
+    }
+}
