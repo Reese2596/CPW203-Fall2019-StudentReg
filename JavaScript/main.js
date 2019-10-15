@@ -3,10 +3,9 @@ var Student = (function () {
     }
     return Student;
 }());
-var stu = new Student();
-stu.firstName = "Makayla";
-var fName = stu.firstName;
-stu.mailingAddress = "123 fake Street, Fake, Fake, 89375";
+var programAttribute = "data-program";
+var AddressAttribute = "data-address";
+var dateOfBirthAttribute = "data-dob";
 window.onload = main;
 function main() {
     var regBtn = document.querySelector("button");
@@ -35,6 +34,17 @@ function displayStudent(disciple) {
     var newItem = document.createElement("li");
     newItem.innerText = disciple.lastName + ", " + disciple.firstName;
     var list = document.querySelector("#student-list > ul");
+    newItem.setAttribute(programAttribute, disciple.programOfStudy);
+    newItem.setAttribute(AddressAttribute, disciple.mailingAddress);
+    newItem.setAttribute(dateOfBirthAttribute, disciple.dateOfBirth.toString());
+    newItem.onclick = showDiscipleData;
     list.appendChild(newItem);
+}
+function showDiscipleData() {
+    var currListItem = this;
+    var name = currListItem.innerText;
+    var program = currListItem.getAttribute(programAttribute);
+    document.querySelector("#display > h2").innerHTML = name;
+    document.querySelector("#display > p").innerHTML = program;
 }
 function clearForm() { }

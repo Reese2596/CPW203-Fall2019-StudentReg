@@ -25,11 +25,21 @@ class Student{
 }
 
 //This is test code
-let stu = new Student();
-stu.firstName = "Makayla";   //set
-let fName = stu.firstName;  //get
-stu.mailingAddress = "123 fake Street, Fake, Fake, 89375"
+/* 
+    let stu = new Student();
+    stu.firstName = "Makayla";   //set
+    let fName = stu.firstName;  //get
+    stu.mailingAddress = "123 fake Street, Fake, Fake, 89375" 
+*/
 //************************************************************ */
+
+//Constant
+const programAttribute = "data-program";
+const AddressAttribute = "data-address";
+const dateOfBirthAttribute = "data-dob";
+
+
+
 
 window.onload = main;
 
@@ -38,12 +48,14 @@ function main(){
     regBtn.onclick = processForm;
 }
 
+
 function processForm(){
     //Get the student information off the form
     let disciple:Student = getStudentFromForm();
     displayStudent(disciple);
     clearForm();
 }
+
 
 function getStudentFromForm():Student{
     let tempdisciple = new Student();
@@ -56,19 +68,42 @@ function getStudentFromForm():Student{
     return tempdisciple;
 }
 
+
 function getInputValue(id:string):string{
     //return (<HTMLInputElement> document.getElementById(id)).value;
     let element = <HTMLInputElement> document.getElementById(id);
     return element.value;
 }
 
+
 function displayStudent(disciple:Student){
     let newItem = document.createElement("li");
     newItem.innerText = disciple.lastName + ", " + disciple.firstName;
-
     let list = document.querySelector("#student-list > ul");
+
+    //embed student data in list item
+    newItem.setAttribute(programAttribute, disciple.programOfStudy);
+    newItem.setAttribute(AddressAttribute, disciple.mailingAddress);
+    newItem.setAttribute(dateOfBirthAttribute, disciple.dateOfBirth.toString());
+    //console.log(newItem);
+
+    newItem.onclick = showDiscipleData;
     //add li element as a child to ul
     list.appendChild(newItem);
 }
+
+/**
+ * shows individual student when student <li> is clicked
+ */
+function showDiscipleData(){
+    //console.log(this);
+    let currListItem = <HTMLLIElement>this;
+    let name = currListItem.innerText;
+    let program = currListItem.getAttribute(programAttribute);
+    //alert(name + program);
+    document.querySelector("#display > h2").innerHTML = name;
+    document.querySelector("#display > p").innerHTML = program;
+}
+
 
 function clearForm(){}
