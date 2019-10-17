@@ -8,6 +8,27 @@ h1{
     text-align: center;
 }
 
+h2{
+    color: rgb(0, 186, 189);
+}
+
+div > p{
+    font-weight: bold;
+}
+
 span{
     color: darkred;
+}
+
+::placeholder{
+    font-style: italic;
+}
+
+::-ms-input-placeholder{
+    font-style: italic;
+}
+
+select{
+    font-style: italic;
+    color: grey;
 }
